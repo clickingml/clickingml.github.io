@@ -1,1 +1,1 @@
-Have suggestion for the game, suggest it at the issues tab
+Have suggestion for the game? Suggest it at the issues tab.
