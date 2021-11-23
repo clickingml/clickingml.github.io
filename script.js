@@ -1,11 +1,20 @@
+// Variables
 var score = 0;
 var clickingPower = 1;
+
 var cursorCost = 15;
 var cursors = 0;
+
 var grandmaCost = 100;
 var grandmas = 0;
 
+var bakeryCost = 300;
+var bakeries = 0;
 
+var treeCost = 500;
+var trees = 0;
+
+// Shops
 
 function buyCursor() {
     if (score >= cursorCost) {
@@ -19,15 +28,12 @@ function buyCursor() {
 
     }
 }
-function addToScore(amount) {
-    score = score + amount;
-    document.getElementById("score").innerHTML = score;
-}
+
 function buyGrandma() {
     if (score >= grandmaCost) {
         score = score - grandmaCost;
         grandmas = grandmas + 1;
-        grandmaCost = Math.round(grandmaCost * 1.20);
+        grandmaCost = Math.round(grandmaCost * 1.10);
 
         document.getElementById("score").innerHTML = score;
         document.getElementById("grandmaCost").innerHTML = grandmaCost;
@@ -35,6 +41,36 @@ function buyGrandma() {
 
     }
 } 
+function buyBakery() {
+    if (score >= bakeryCost) {
+        score = score - bakeryCost;
+        bakeries = bakeries + 2;
+        bakeryCost = Math.round(bakeryCost * 1.15);
+
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("bakeryCost").innerHTML = bakeryCost;
+        document.getElementById("bakeries").innerHTML = bakeries;
+
+    }
+} 
+
+function buyTree() {
+    if (score >= treeCost) {
+        score = score - treeCost;
+        trees = trees + 1;
+        treeCost = Math.round(treeCost * 1.15);
+
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("treeCost").innerHTML = treeCost;
+        document.getElementById("trees").innerHTML = trees;
+
+    }
+} 
+function addToScore(amount) {
+    score = score + amount;
+    document.getElementById("score").innerHTML = score;
+}
+
 function loadGame() {
     var savedGame = JSON.parse(localStorage.getItem("gameSave"))
     if (typeof savedGame.score !== "undefined") score = savedGame.score; 
@@ -43,7 +79,13 @@ function loadGame() {
     if (typeof savedGame.cursors !== "undefined") cursors = savedGame.cursors;
     if (typeof savedGame.grandmas !== "undefined") grandmas = savedGame.grandmas;
     if (typeof savedGame.grandmaCost !== "undefined") grandmaCost = savedGame.grandmaCost;
+    if (typeof savedGame.bakeries !== "undefined") bakeries = savedGame.bakeries;
+    if (typeof savedGame.bakeryCost !== "undefined") bakeryCost = savedGame.bakeryCost;
+    if (typeof savedGame.trees !== "undefined") trees = savedGame.trees;
+    if (typeof savedGame.treeCost !== "undefined") treeCost = savedGame.treeCost;
+
 }
+
 function saveGame() {
     var gameSave = {
         score: score,
@@ -51,24 +93,34 @@ function saveGame() {
         cursorCost: cursorCost,
         cursors: cursors,
         grandmas: grandmas,
-        grandmaCost: grandmaCost
+        grandmaCost: grandmaCost,
+        bakeryCost: bakeryCost,
+        bakeries: bakeries,
+        trees: trees,
+        treeCost: treeCost
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
-  }
+}
 
 window.onload = function(){
     loadGame();
-    
     document.getElementById("score").innerHTML = score;
     document.getElementById("cursorCost").innerHTML = cursorCost;
     document.getElementById("cursors").innerHTML = cursors;
     document.getElementById("grandmas").innerHTML = grandmas;
     document.getElementById("grandmaCost").innerHTML = grandmaCost;
+    document.getElementById("bakeryCost").innerHTML = bakeryCost;
+    document.getElementById("bakeries").innerHTML = bakeries;
+    document.getElementById("trees").innerHTML = trees;
+    document.getElementById("treeCost").innerHTML = treeCost;
 };
+
 setInterval(function() {
     saveGame();
     score = score + cursors;
-    score = score + grandmas;
+    score = score + grandmas * 5;
+    score = score + bakeries * 15;
+    score = score + trees * 30;
     document.getElementById("score").innerHTML = score;
     document.title = score + "$ - Clicking.ml";
 }, 1000); 
