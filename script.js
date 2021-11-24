@@ -142,7 +142,7 @@ setInterval(function() {
     score = score + grandmas * 5;
     score = score + bakeries * 15;
     score = score + trees * 30;
-    score = score + footballs * 50;
+    score = score + footballs * 35;
     document.getElementById("score").innerHTML = score;
     document.title = score + "$ - Clicking.ml";
 }, 1000); 
