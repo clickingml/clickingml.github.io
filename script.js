@@ -14,6 +14,8 @@ var bakeries = 0;
 var treeCost = 500;
 var trees = 0;
 
+var footballs
+var footballCost
 // Shops
 
 function buyCursor() {
@@ -66,6 +68,20 @@ function buyTree() {
 
     }
 } 
+
+function buyFootball() {
+    if (score >= footballCost) {
+        score = score - footballCost;
+        footballs = footballs + 1;
+        footballCost = Math.round(footballCost * 1.15);
+
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("footballCost").innerHTML = footballCost;
+        document.getElementById("footballs").innerHTML = footballs;
+
+    }
+} 
+
 function addToScore(amount) {
     score = score + amount;
     document.getElementById("score").innerHTML = score;
@@ -83,7 +99,8 @@ function loadGame() {
     if (typeof savedGame.bakeryCost !== "undefined") bakeryCost = savedGame.bakeryCost;
     if (typeof savedGame.trees !== "undefined") trees = savedGame.trees;
     if (typeof savedGame.treeCost !== "undefined") treeCost = savedGame.treeCost;
-
+    if (typeof savedGame.footballs !== "undefined") footballs = savedGame.footballs;
+    if (typeof savedGame.footballCost !== "undefined") footballCost = savedGame.footballCost;
 }
 
 function saveGame() {
@@ -97,7 +114,9 @@ function saveGame() {
         bakeryCost: bakeryCost,
         bakeries: bakeries,
         trees: trees,
-        treeCost: treeCost
+        treeCost: treeCost,
+        footballs: footballs,
+        footballCost: footballCost
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
@@ -113,6 +132,8 @@ window.onload = function(){
     document.getElementById("bakeries").innerHTML = bakeries;
     document.getElementById("trees").innerHTML = trees;
     document.getElementById("treeCost").innerHTML = treeCost;
+    document.getElementById("footballs").innerHTML = footballs;
+    document.getElementById("footballCost").innerHTML = footballCost;
 };
 
 setInterval(function() {
@@ -121,6 +142,7 @@ setInterval(function() {
     score = score + grandmas * 5;
     score = score + bakeries * 15;
     score = score + trees * 30;
+    score = score + footballs * 50;
     document.getElementById("score").innerHTML = score;
     document.title = score + "$ - Clicking.ml";
 }, 1000); 
