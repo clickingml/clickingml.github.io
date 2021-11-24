@@ -1,8 +1,8 @@
 // Variables
-var score = 0;
+var score = 1;
 var clickingPower = 1;
 
-var cursorCost = 15;
+var cursorCost = 25;
 var cursors = 0;
 
 var grandmaCost = 100;
