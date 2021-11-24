@@ -1,5 +1,5 @@
 // Variables
-var score = 1;
+var score = 0;
 var clickingPower = 1;
 
 var cursorCost = 25;
