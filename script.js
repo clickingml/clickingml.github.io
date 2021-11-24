@@ -14,8 +14,8 @@ var bakeries = 0;
 var treeCost = 500;
 var trees = 0;
 
-var footballs
-var footballCost
+var footballs = 0
+var footballCost = 1000;
 // Shops
 
 function buyCursor() {
