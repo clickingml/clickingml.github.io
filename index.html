@@ -20,12 +20,13 @@
       <span class="border">
        <i class="fa-solid fa-arrow-pointer fa-10x d-flex justify-content-center" style="text-align:center;" onclick="addToScore(clickingPower);"></i>
       </span>
+      <hr/>
     <br>
     <div class="card mb-3" style="max-width: 100em; margin: 1em;">
         
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="mouse.jpg" class="img-fluid rounded-start"  alt="Mouse" width="100" height="100">
+            <img src="img/mouse.jpg" class="img-fluid rounded-start"  alt="Mouse" width="100" height="100">
           </div>
           <hr />
           <div class="col-md-8">
@@ -43,7 +44,7 @@
     <div class="card mb-3" style="max-width: 100em; margin: 1em;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="grandma.png" class="img-fluid rounded-start"  alt="Grandma" width="100" height="100">
+            <img src="img/grandma.png" class="img-fluid rounded-start"  alt="Grandma" width="100" height="100">
           </div>
           <hr />
           <div class="col-md-8">
@@ -62,7 +63,7 @@
       <div class="card mb-3" style="max-width: 100em; margin: 1em;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="bakery.jpg" class="img-fluid rounded-start"  alt="Bakery" width="100" height="100">
+            <img src="img/bakery.jpg" class="img-fluid rounded-start"  alt="Bakery" width="100" height="100">
           </div>
           <hr />
           <div class="col-md-8">
@@ -80,7 +81,7 @@
       <div class="card mb-3" style="max-width: 100em; margin: 1em;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="tree.png" class="img-fluid rounded-start"  alt="Trees" width="100" height="100">
+            <img src="img/tree.png" class="img-fluid rounded-start"  alt="Trees" width="100" height="100">
           </div>
           <hr />
           <div class="col-md-8">
@@ -98,7 +99,7 @@
       <div class="card mb-3" style="max-width: 100em; margin: 1em;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="football.png" class="img-fluid rounded-start"  alt="Trees" width="100" height="100">
+            <img src="img/football.png" class="img-fluid rounded-start"  alt="Trees" width="100" height="100">
           </div>
           <hr />
           <div class="col-md-8">
@@ -113,6 +114,70 @@
           </div>
         </div>
       </div>
+      <div class="card mb-3" style="max-width: 100em; margin: 1em;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="img/factory.png" class="img-fluid rounded-start"  alt="Bakery" width="100" height="100">
+          </div>
+          <hr />
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Factory</h5>
+              <p class="card-text">Makes more money than ever. become rich so fast.</p>
+              <p class="card-text"><small class="text-muted">Factories Producing: <span id="factories">0</span><br>
+                  Price: <span id="factoryCost">9000</span>$
+                  <br><br>
+                  <button class="btn btn-primary" onclick="buyFactory()">Buy</button></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <h1 class='text-center'>Upgrades</h1>
+      <hr>
+      <div class="card mb-3" style="max-width: 100em; margin: 1em;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <span>
+            <i class="fa-solid fa-hand fa-10x d-flex justify-content-center" style='color: #FFCC99;'></i>
+            </span>
+            
+          </div>
+          <hr />
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Human hands</h5>
+              <p class="card-text">Better than clicking one time. Now two times with two hands. </p>
+              <p class="card-text"><small class="text-muted">Human hands: <span id="clicktwo">0</span><br>
+                  Price: <span id="twoclickCost">10000</span>$
+                  <br><br>
+                  <button class="btn btn-primary" id='disableone' onclick="upgradeclick1()">Buy</button></small></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 100em; margin: 1em;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="img/stone.png" alt="stone" width="200" height='100'>
+          </div>
+          <hr />
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Stone hands</h5>
+              <p class="card-text">Click with stone, 4 times better and 2 times better than human hands and normal clicking hands.</p>
+              <p class="card-text"><small class="text-muted">Human hands: <span id="clickthree">0</span><br>
+                  Price: <span id="threeclickCost">20000</span>$
+                  <br><br>
+                  <button class="btn btn-primary" id='disableone' onclick="upgradeclick2()">Buy</button></small></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
 
     <script src="script.js"></script>
 </body>
