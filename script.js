@@ -14,17 +14,20 @@ var bakeries = 0;
 var treeCost = 500;
 var trees = 0;
 
-var footballs = 0
+var footballs = 0;
 var footballCost = 1000;
 
 var factoryCost = 9000;
-var factories
+var factories = 0;
 // Upgrade costs
 var twoclickCost = 10000;
 var clicktwo = 0;
 
 var threeclickCost = 20000;
 var clickthree = 0;
+
+var fourclickCost = 60000;
+var clickfour = 0;
 // Shops
 
 function buyCursor() {
@@ -107,7 +110,8 @@ function buyFactory() {
 function upgradeclick1() {
 
     if (score >= twoclickCost) {
-        clickingPower = 2;
+        
+        clickingPower = 2 * ++i;
         score = score - twoclickCost;
         clicktwo = clicktwo + 1;
         twoclickCost = Math.round(twoclickCost * 1.15);
@@ -122,7 +126,7 @@ function upgradeclick1() {
 function upgradeclick2() {
 
     if (score >= threeclickCost) {
-        clickingPower = 4;
+        clickingPower = 4 * ++i;
         score = score - threeclickCost;
         clickthree = clickthree + 1;
         threeclickCost = Math.round(threeclickCost * 1.15);
@@ -131,7 +135,20 @@ function upgradeclick2() {
         document.getElementById("threeclickCost").innerHTML = twoclickCost;
         document.getElementById("clickthree").innerHTML = clicktwo;
 
-        upgradeclick = function(){};
+
+    }
+} 
+function upgradeclick3() {
+
+    if (score >= fourclickCost) {
+        clickingPower = 8 * ++i;
+        score = score - fourclickCost;
+        clickfour = clickfour + 1;
+        clickfour = Math.round(clickfour * 1.15);
+
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("fourclickCost").innerHTML = fourclickCost;
+        document.getElementById("clickfour").innerHTML = clickfour;
 
     }
 } 
@@ -160,6 +177,10 @@ function loadGame() {
     if (typeof savedGame.threeclickCost !== "undefined") clicktwo = savedGame.clickthree;
     if (typeof savedGame.factories !== "undefined") factories = savedGame.factories;
     if (typeof savedGame.factoryCost !== "undefined") factoryCost = savedGame.factoryCost;
+    if (typeof savedGame.fourclickCost !== "undefined") fourclickCost = savedGame.fourclickCost;
+    if (typeof savedGame.clickfour !== "undefined") clickfour = savedGame.clickfour;
+
+
 }
 
 function saveGame() {
@@ -181,7 +202,9 @@ function saveGame() {
         threeclickCost: threeclickCost,
         clickthree: clickthree,
         factories: factories,
-        factoryCost: factoryCost
+        factoryCost: factoryCost,
+        clickfour: clickfour,
+        fourclickCost: fourclickCost
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
@@ -205,6 +228,10 @@ window.onload = function(){
     document.getElementById("threeclickCost").innerHTML = threeclickCost;
     document.getElementById("factories").innerHTML = factories;
     document.getElementById("factoryCost").innerHTML = factoryCost;
+    document.getElementById("fourclickCost").innerHTML = fourclickCost;
+    document.getElementById("clickfour").innerHTML = clickfour;
+
+
 };
 
 setInterval(function() {
